@@ -1,0 +1,219 @@
+:root{
+  --bg: #0a0b0c;
+  --bg-raised: #121315;
+  --line: #232629;
+  --text: #e9e6df;
+  --text-dim: #8b9097;
+  --copper: #ff8a3d;
+  --cyan: #5fd8c9;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  --sans: "Inter", -apple-system, sans-serif;
+  --max: 880px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  body{ animation: fade-in .6s ease both; }
+}
+@keyframes fade-in{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+
+a{ color:inherit; }
+
+::selection{ background:var(--copper); color:#0a0b0c; }
+
+/* faint engineering grid behind everything */
+.grid-overlay{
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity:.18;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 10%, transparent 70%);
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+  position:relative; z-index:1;
+  border-bottom:1px solid var(--line);
+  padding: 96px 24px 72px;
+}
+.hero-inner{ max-width:var(--max); margin:0 auto; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--mono); font-size:12px; letter-spacing:.12em;
+  color:var(--cyan); text-transform:uppercase;
+  border:1px solid var(--line); padding:5px 10px; border-radius:3px;
+  margin-bottom:28px;
+}
+.dot{
+  width:6px; height:6px; border-radius:50%; background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);
+}
+@media (prefers-reduced-motion: no-preference){
+  .dot{ animation: pulse 2.4s ease-in-out infinite; }
+}
+@keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+.hero h1{
+  font-family:var(--mono); font-weight:800;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing:-0.01em;
+  margin-bottom:14px;
+}
+
+.role{
+  font-family:var(--mono); color:var(--copper);
+  font-size:15px; letter-spacing:.04em;
+  margin-bottom:18px;
+}
+
+.tagline{
+  max-width:560px; color:var(--text-dim); font-size:17px;
+  margin-bottom:32px;
+}
+
+.links{ display:flex; flex-wrap:wrap; gap:10px; }
+.links a{
+  font-family:var(--mono); font-size:13px;
+  border:1px solid var(--line); padding:8px 14px; border-radius:3px;
+  text-decoration:none; color:var(--text);
+  transition: border-color .15s ease, color .15s ease;
+}
+.links a:hover, .links a:focus-visible{
+  border-color:var(--copper); color:var(--copper);
+  outline: none;
+}
+
+/* ---------------- SECTIONS ---------------- */
+main{ position:relative; z-index:1; max-width:var(--max); margin:0 auto; padding: 0 24px; }
+
+.section{ padding: 64px 0; border-bottom:1px solid var(--line); }
+.section:last-of-type{ border-bottom:none; }
+
+.section-head{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:16px; margin-bottom:28px; flex-wrap:wrap;
+}
+.section-head h2{
+  font-family:var(--mono); font-size:20px; font-weight:700;
+}
+.section-meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  color:var(--text-dim); text-transform:uppercase;
+}
+
+/* ---------------- DATASHEET / ARTICLES (signature element) ---------------- */
+.datasheet{ border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+
+.ds-header-row, .ds-row{
+  display:grid;
+  grid-template-columns: 90px 100px 1fr 80px;
+  gap: 16px;
+  align-items:start;
+}
+
+.ds-header-row{
+  padding: 10px 18px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  color:var(--text-dim); text-transform:uppercase;
+  background: var(--bg-raised);
+  border-bottom:1px solid var(--line);
+}
+
+.ds-row{
+  padding: 20px 18px;
+  border-bottom:1px solid var(--line);
+  text-decoration:none; color:var(--text);
+  transition: background .15s ease;
+}
+.ds-row:last-child{ border-bottom:none; }
+.ds-row:hover, .ds-row:focus-visible{ background: var(--bg-raised); outline:none; }
+.ds-row[data-link="false"]{ cursor:default; }
+
+.ds-addr{
+  font-family:var(--mono); font-size:13px; color:var(--cyan);
+}
+
+.ds-tag{
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+  color:var(--copper); border:1px solid var(--line);
+  padding:3px 8px; border-radius:3px; width:fit-content; height:fit-content;
+}
+
+.ds-content .ds-title{
+  font-weight:600; font-size:15.5px; margin-bottom:6px;
+}
+.ds-content .ds-summary{
+  font-size:13.5px; color:var(--text-dim); line-height:1.55;
+}
+.ds-langs{
+  display:flex; gap:8px; margin-top:10px;
+}
+.lang-badge{
+  font-family:var(--mono); font-size:11px; font-weight:700;
+  letter-spacing:.04em;
+  border:1px solid var(--line); border-radius:3px;
+  padding:4px 9px;
+  text-decoration:none; color:var(--cyan);
+  transition: border-color .15s ease, background .15s ease;
+}
+.lang-badge:hover, .lang-badge:focus-visible{
+  border-color:var(--cyan); background: rgba(95,216,201,0.08);
+  outline:none;
+}
+
+.ds-date{
+  font-family:var(--mono); font-size:12px; color:var(--text-dim);
+  text-align:right;
+}
+
+@media (max-width: 640px){
+  .ds-header-row{ display:none; }
+  .ds-row{
+    grid-template-columns: 1fr;
+    gap:10px;
+  }
+  .ds-date{ text-align:left; }
+}
+
+/* ---------------- PROJECTS ---------------- */
+.projects-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:14px;
+}
+.project-card{
+  border:1px solid var(--line); border-radius:4px; padding:20px;
+  text-decoration:none; color:var(--text);
+  transition: border-color .15s ease, transform .15s ease;
+  display:block;
+}
+.project-card:hover, .project-card:focus-visible{
+  border-color:var(--cyan); transform:translateY(-2px); outline:none;
+}
+.project-card .p-name{
+  font-family:var(--mono); font-weight:700; font-size:14.5px;
+  color:var(--cyan); margin-bottom:8px;
+}
+.project-card .p-desc{ font-size:13.5px; color:var(--text-dim); }
+
+/* ---------------- FOOTER ---------------- */
+.footer{
+  position:relative; z-index:1;
+  max-width:var(--max); margin:0 auto;
+  padding: 40px 24px 64px;
+  font-family:var(--mono); font-size:12px; color:var(--text-dim);
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
