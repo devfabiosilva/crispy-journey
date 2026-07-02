@@ -6,7 +6,36 @@
     return;
   }
 
-  const toHexAddr = (i) => "0x" + i.toString(16).padStart(2, "0").toUpperCase();
+  const toHexAddr = (i) => "0x" + i.toString(16).padStart(4, "0").toUpperCase();
+
+  // ---- About ----
+  const about = data.about;
+  if (about) {
+    const avatarEl = document.getElementById("about-avatar");
+    if (about.photo) {
+      const img = document.createElement("img");
+      img.src = about.photo;
+      img.alt = data.profile.name;
+      avatarEl.appendChild(img);
+    } else {
+      avatarEl.textContent = data.profile.avatarInitials || "?";
+    }
+
+    const bioEl = document.getElementById("about-bio");
+    (about.bio || []).forEach((para) => {
+      const p = document.createElement("p");
+      p.textContent = para;
+      bioEl.appendChild(p);
+    });
+
+    const stackEl = document.getElementById("about-stack");
+    (about.stack || []).forEach((tech) => {
+      const span = document.createElement("span");
+      span.className = "stack-badge";
+      span.textContent = tech;
+      stackEl.appendChild(span);
+    });
+  }
 
   // ---- Hero ----
   document.getElementById("profile-name").textContent = data.profile.name;
