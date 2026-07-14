@@ -51,13 +51,45 @@ window.SITE_CONTENT = {
   //      (pode ter só "pt" ou só "en" também — o badge que faltar some sozinho)
   // ---------------------------------------------------------------------
   articles: [
-    {
-      tag: "Hardware, IoT, Power Electronics",
-      title: "Concurso KiCad / PCBWay 2026 projetos de hardware",
+      {
+        tag: "Hardware, IoT, Power Electronics",
+        title: "Concurso KiCad / PCBWay 2026 projetos de hardware",
+        summary:
+          "Faça você mesmo DIY sua fonte chaveada de alto alcance para sistemas embutidos com tensão de entrada entre 100 V ~ 820 V AC",
+        date: "2026-06-01",
+        url: "https://www.pcbway.com/project/shareproject/TeslaSMPS_Simple_3_Transistor_Ultra_Wide_Range_100V_820V_AC_142V_1160V_DC_c3cf9745.html",
+      },
+      {
+      tag: "O&G industry, WITSML, ETP, Big Data",
+      title: "Why the Oil & Gas industry generates such massive files?",
       summary:
-        "Faça você mesmo DIY sua fonte chaveada de alto alcance para sistemas embutidos com tensão de entrada entre 100 V ~ 820 V AC",
-      date: "2026-06-01",
-      url: "https://www.pcbway.com/project/shareproject/TeslaSMPS_Simple_3_Transistor_Ultra_Wide_Range_100V_820V_AC_142V_1160V_DC_c3cf9745.html",
+        "If you have ever opened a data file in the WITSML 2.1 standard, you probably noticed its staggering complexity. A single OpsReport or Channel document of just half a megabyte can easily pack over 5,000 objects, hundreds of <Measure> tags, cross-referenced UUIDs, and multiple extension blocks",
+      date: "2026-05-22",
+      url: "https://www.linkedin.com/pulse/why-oil-gas-industry-generates-massive-files-how-edge-f%25C3%25A1bio-jyice/?trackingId=LZbhi2xTQF%2BwHLG7002tQw%3D%3D"
+    },
+    {
+      tag: "Indúustria de O&G, WITSML, ETP, Big Data",
+      title: "Por que o setor de Óleo e Gás gera arquivos de dados tão massivos?",
+      summary:
+        "Se você já abriu um arquivo de dados no padrão WITSML 2.1, provavelmente tomou um susto. Um único documento OpsReport ou Channel de meio megabyte pode carregar facilmente mais de 5.000 objetos, centenas de tags <Measure>, UUIDs cruzados e múltiplos blocos de extensão.",
+      date: "2026-05-22",
+      url: "https://www.linkedin.com/pulse/por-que-o-setor-de-%25C3%25B3leo-e-g%25C3%25A1s-gera-arquivos-dados-t%25C3%25A3o-f%25C3%25A1bio-ktnbe/?trackingId=cJdLnPP6sWgsjSev%2FWkdww%3D%3D"
+    },
+    {
+      tag: "Java, performance, logs",
+      title: "221x Slower: What Your Logs Are Really Costing You",
+      summary:
+        "Have you ever opened a 30 MB log file trying to diagnose a production issue and spent too long finding anything useful among hundreds of stack traces?",
+      date: "2026-06-02",
+      url: "https://www.linkedin.com/pulse/221x-slower-what-your-logs-really-costing-you-f%25C3%25A1bio-pereira-da-silva-jthif/?trackingId=plGc2wtm2N61FpWisZABYg%3D%3D"
+    },
+    {
+      tag: "Java, performance, logs",
+      title: "221x Mais Lento: O Que Seu Log Está Custando de Verdade",
+      summary:
+        "Você já abriu um arquivo de log de uns 30 MB tentando diagnosticar um problema em produção e demorou a encontrar a informação útil em meio a centenas de stack traces?",
+      date: "2026-06-02",
+      url: "https://www.linkedin.com/pulse/221x-mais-lento-o-que-seu-log-est%25C3%25A1-custando-de-f%25C3%25A1bio-pereira-da-silva-z8nrf/?trackingId=O75EPtBvpRTmewjsZ4oF2w%3D%3D"
     },
     {
       tag: "JAVA",
